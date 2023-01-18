@@ -19,11 +19,11 @@ const AnimatedDrag = () => {
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: (_, {dx, dy}) => {
-        console.log('Finger moving');
+        // console.log('Finger moving');
         POSITION.setValue({x: dx, y: dy});
       },
       onPanResponderGrant: () => {
-        console.log('Touch Started');
+        // console.log('Touch Started');
         POSITION.setOffset({
           x: POSITION.x._value,
           y: POSITION.y._value,
@@ -32,7 +32,7 @@ const AnimatedDrag = () => {
       // 0이 아니라 어디서 컴포넌트 시작 위치가 어디일지 정해주는 함수
 
       onPanResponderRelease: () => {
-        console.log('Touch Finished');
+        // console.log('Touch Finished');
         POSITION.flattenOffset();
         // 현재 offset에 가지고 있던 값은 현재 포지션으로 넘겨주고, offset안에 있던 값은 0으로 변경하는 소스!! 이거 중요!
       },
@@ -60,7 +60,7 @@ const AnimatedDrag = () => {
     outputRange: ['rgb(255,99,71)', 'rgb(71,166,255)'],
   });
 
-  POSITION.addListener(() => console.log(POSITION.getTranslateTransform()));
+  // POSITION.addListener(() => console.log(POSITION.getTranslateTransform()));
   return (
     <Container>
       <AnimatedBox

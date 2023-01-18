@@ -1,1 +1,1 @@
-export default ['arrowdown', 'arrowup', 'arrowright', 'arrowleft'];
+export default ['arrowup', 'arrowdown', 'arrowright', 'arrowleft'];

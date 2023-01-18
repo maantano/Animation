@@ -34,6 +34,33 @@ const CardAnimated = styled(Animated.createAnimatedComponent(View))`
   position: absolute;
 `;
 
+const Titleconatainer = styled.View`
+  padding-top: 55px;
+`;
+const Title = styled.Text`
+  color: white;
+  font-weight: 600;
+  font-size: 33px;
+  text-align: center;
+`;
+
+const Cardtext = styled.Text`
+  color: white;
+  font-weight: 500;
+  font-size: 25px;
+`;
+const CardAnimated2 = styled(Animated.createAnimatedComponent(View))`
+  background-color: rgb(41, 189, 247);
+  width: 150px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 10;
+`;
+
 const Btn = styled.TouchableOpacity`
   margin: 0px 10px;
 `;
@@ -67,6 +94,21 @@ const CardAni = () => {
     outputRange: [1, 0.7, 1],
     extrapolate: 'clamp',
   });
+  const scaleText = position.interpolate({
+    inputRange: [-300, 0, 300],
+    outputRange: [2.5, 1, 2.5],
+    extrapolate: 'clamp',
+  });
+  const opcaityText = position.interpolate({
+    inputRange: [-300, 0, 300],
+    outputRange: [1, 0, 1],
+  });
+
+  // const textScale = position.interpolate({
+  //   inputRange: [-300, 0, 300],
+  //   outputRange: [1, 0.7, 1],
+  //   extrapolate: 'clamp',
+  // });
 
   const onPressOut = Animated.spring(scale, {
     toValue: 1,
@@ -153,11 +195,21 @@ const CardAni = () => {
   return (
     <Container>
       {/* <AnimatedCard style={{transform: [{scale}]}}> */}
-
+      <Titleconatainer>
+        {/* <Title>
+          {`Do you know this
+Font Img name?`}
+        </Title> */}
+        <Title>Do you know this {'\n'}Font Image name?</Title>
+      </Titleconatainer>
       <CardContainer>
         <CardAnimated style={{transform: [{scale: secondScale}]}}>
           <Ionicons name={icons[index + 1]} color="#192a56" size={98} />
         </CardAnimated>
+        <CardAnimated2
+          style={{opacity: opcaityText, transform: [{scale: scaleText}]}}>
+          <Cardtext>{icons[index]}</Cardtext>
+        </CardAnimated2>
         <CardAnimated
           {...panResponder.panHandlers}
           style={{

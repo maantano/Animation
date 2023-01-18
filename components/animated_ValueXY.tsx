@@ -22,18 +22,18 @@ const AnimatedBox = Animated.createAnimatedComponent(Box);
 
 const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 
-const animated_ValueXY = () => {
+const Animated_ValueXY = () => {
   const POSITION = useRef(
     new Animated.ValueXY({
       x: -SCREEN_WIDTH / 2 + 100,
-      y: -SCREEN_HEIGHT / 2 + 100,
+      y: -SCREEN_HEIGHT / 2 + 200,
     }),
   ).current;
 
   const topLeft = Animated.timing(POSITION, {
     toValue: {
       x: -SCREEN_WIDTH / 2 + 100,
-      y: -SCREEN_HEIGHT / 2 + 100,
+      y: -SCREEN_HEIGHT / 2 + 200,
     },
     useNativeDriver: false,
   });
@@ -41,7 +41,7 @@ const animated_ValueXY = () => {
   const bottomLeft = Animated.timing(POSITION, {
     toValue: {
       x: -SCREEN_WIDTH / 2 + 100,
-      y: +SCREEN_HEIGHT / 2 - 100,
+      y: +SCREEN_HEIGHT / 2 - 200,
     },
     useNativeDriver: false,
   });
@@ -49,7 +49,7 @@ const animated_ValueXY = () => {
   const topRight = Animated.timing(POSITION, {
     toValue: {
       x: +SCREEN_WIDTH / 2 - 100,
-      y: -SCREEN_HEIGHT / 2 + 100,
+      y: -SCREEN_HEIGHT / 2 + 200,
     },
     useNativeDriver: false,
   });
@@ -57,12 +57,13 @@ const animated_ValueXY = () => {
   const bottomRight = Animated.timing(POSITION, {
     toValue: {
       x: +SCREEN_WIDTH / 2 - 100,
-      y: +SCREEN_HEIGHT / 2 - 100,
+      y: +SCREEN_HEIGHT / 2 - 200,
     },
     useNativeDriver: false,
   });
 
   const moveUp = () => {
+    setTimeChk(false);
     // Animated.sequence 는 여러 animation들의 array 이다.
     Animated.loop(
       Animated.sequence([bottomLeft, bottomRight, topRight, topLeft]),
@@ -71,28 +72,39 @@ const animated_ValueXY = () => {
   };
 
   const rotation = POSITION.y.interpolate({
-    inputRange: [-300, 300],
+    inputRange: [-150, 150],
     outputRange: ['-360deg', '360deg'],
   });
   // POSITION.addListener(() => console.log(rotation));
 
   const opacity = POSITION.y.interpolate({
-    inputRange: [-300, 0, 300],
+    inputRange: [-150, 0, 150],
     outputRange: [1, 0.5, 1],
   });
   // POSITION.addListener(() => console.log(opacity));
 
   const borderRadius = POSITION.y.interpolate({
-    inputRange: [-300, 300],
+    inputRange: [-150, 150],
     outputRange: [100, 0],
   });
   const bgColor = POSITION.y.interpolate({
-    inputRange: [-300, 300],
+    inputRange: [-150, 150],
     // outputRange: ['blue', 'red'],  X rgb로 해야해
     outputRange: ['rgb(255,99,71)', 'rgb(71,166,255)'],
   });
 
-  POSITION.addListener(() => console.log(POSITION.getTranslateTransform()));
+  // POSITION.addListener(() => console.log(POSITION.getTranslateTransform()));
+  const [timeChk, setTimeChk] = useState(false);
+  console.log(timeChk);
+
+  setTimeout(() => {
+    Animated.timing(POSITION, {
+      toValue: 0,
+      duration: 50,
+      useNativeDriver: true,
+    }).stop();
+    setTimeChk(true);
+  }, 5000);
   return (
     <Container>
       <Pressable onPress={moveUp}>
@@ -117,4 +129,4 @@ const animated_ValueXY = () => {
   );
 };
 
-export default animated_ValueXY;
+export default Animated_ValueXY;
