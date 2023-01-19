@@ -20,9 +20,6 @@ React Natvie Animated 관련해서 만들어봤다.
 <img width="20%" src="https://user-images.githubusercontent.com/109050423/213367430-d04d3b25-c572-4766-a370-f22508736d55.mov"/>
 <img width="20%" src="https://user-images.githubusercontent.com/109050423/213367438-c3a7d710-3c8e-4274-9d3b-70ae33ffe0f0.mov"/>
 
-
-
-
 ## Built with
 
 - React Native
@@ -42,3 +39,7 @@ React Natvie Animated 관련해서 만들어봤다.
 ## 아쉬움
 
 - 나는 각 방향 버튼 마다 키 값을 주고 그 값에 맞는 다음 카드가 나왔을때 그 카드 값이랑 비교 해서 맞고 틀린 에니메이션을 주고싶었는데, useRef 안에서 state를 받아오지 못해서, nextIcon 안에서 다음 카드의 값과 버튼의 값을 비교하는것이 안되었는데, 포기하긴 아까워서, 조금더 알아봐야할것같다.. :(
+
+## 설명 더하기 :)
+
+- https://velog.io/@maantano/Animated-Function
