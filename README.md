@@ -14,12 +14,12 @@ React Natvie Animated 관련해서 만들어봤다.
 
 ## Demo
 
+<img width="20%" src="https://user-images.githubusercontent.com/109050423/213366451-a6716ba1-fad4-4177-8573-ef4176ff5f76.mov"/>
+<img width="20%" src="https://user-images.githubusercontent.com/109050423/213366481-3dc305eb-ee3a-48cf-a566-cdbe2ed655de.mov"/>
+<img width="20%" src="https://user-images.githubusercontent.com/109050423/213366685-633ba7a0-a607-4414-b3be-59cb8ecea417.mov"/>
+<img width="20%" src="https://user-images.githubusercontent.com/109050423/213367430-d04d3b25-c572-4766-a370-f22508736d55.mov"/>
+<img width="20%" src="https://user-images.githubusercontent.com/109050423/213367438-c3a7d710-3c8e-4274-9d3b-70ae33ffe0f0.mov"/>
 
-https://user-images.githubusercontent.com/109050423/213366451-a6716ba1-fad4-4177-8573-ef4176ff5f76.mov
-https://user-images.githubusercontent.com/109050423/213366481-3dc305eb-ee3a-48cf-a566-cdbe2ed655de.mov
-https://user-images.githubusercontent.com/109050423/213366685-633ba7a0-a607-4414-b3be-59cb8ecea417.mov
-https://user-images.githubusercontent.com/109050423/213367430-d04d3b25-c572-4766-a370-f22508736d55.mov
-https://user-images.githubusercontent.com/109050423/213367438-c3a7d710-3c8e-4274-9d3b-70ae33ffe0f0.mov
 
 
 
