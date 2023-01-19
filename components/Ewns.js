@@ -80,11 +80,8 @@ const IconCorrect = styled(Animated.createAnimatedComponent(View))`
 const Ewns = () => {
   //values
   const [index, setIndex] = useState(0);
-  const [correct, setCorrect] = useState(0);
-  const [chk, setChk] = useState(false);
-  //   console.log('correct====>', correct); // correct는 무조건 나옴
 
-  const nextIcon = correct2 => {
+  const nextIcon = () => {
     Animated.parallel([
       Animated.spring(scale, {toValue: 1, useNativeDriver: true}),
       Animated.spring(opacity, {toValue: 1, useNativeDriver: true}),
@@ -187,9 +184,7 @@ const Ewns = () => {
 
       // panResponder가 움직임이 끝낫을떄! 즉 터치가 끝났을때!
       onPanResponderRelease: (_, {dx, dy}) => {
-        console.log(dx, dy);
         if (dy < -250 && -15 < dx < 15) {
-          console.log('1');
           Animated.sequence([
             Animated.parallel([onDropOpacity, onDropScale, onChkOpacity2]),
             Animated.timing(position, {
@@ -200,10 +195,8 @@ const Ewns = () => {
             }),
           ]).start(() => {
             nextIcon(0);
-            setCorrect(0);
           });
         } else if (dy > 250 && -15 < dx < 15) {
-          console.log('2');
           Animated.sequence([
             Animated.parallel([onDropOpacity, onDropScale, onChkOpacity2]),
             Animated.timing(position, {
@@ -213,11 +206,9 @@ const Ewns = () => {
               useNativeDriver: true,
             }),
           ]).start(() => {
-            setCorrect(1);
             nextIcon(1);
           });
         } else if (dx > 150 && -10 < dy < 10) {
-          console.log('3');
           Animated.sequence([
             Animated.parallel([onDropOpacity, onDropScale, onChkOpacity2]),
             Animated.timing(position, {
@@ -227,11 +218,9 @@ const Ewns = () => {
               useNativeDriver: true,
             }),
           ]).start(() => {
-            setCorrect(2);
             nextIcon(2);
           });
         } else if (dx < -150 && -10 < dy < 10) {
-          console.log('4');
           Animated.sequence([
             Animated.parallel([onDropOpacity, onDropScale, onChkOpacity2]),
             Animated.timing(position, {
@@ -241,11 +230,9 @@ const Ewns = () => {
               useNativeDriver: true,
             }),
           ]).start(() => {
-            setCorrect(3);
             nextIcon(3);
           });
         } else {
-          // console.log(1234);
           Animated.parallel([onPressOut, goCenter]).start(); // ==> 안에 실행될 함수가 동시에 실행 되는것
         }
       },
@@ -253,6 +240,7 @@ const Ewns = () => {
   ).current;
   // state
   position.getTranslateTransform();
+  // console.log(panResponder.panHandlers);
 
   return (
     <Root>

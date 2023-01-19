@@ -37,6 +37,7 @@ const CardAnimated = styled(Animated.createAnimatedComponent(View))`
 const Titleconatainer = styled.View`
   padding-top: 55px;
 `;
+
 const Title = styled.Text`
   color: white;
   font-weight: 600;
